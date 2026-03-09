@@ -1,161 +1,73 @@
-# 📐 Tacheometric RL Calculator
+# README: Tacheometric Surveying Solver
 
-A **Streamlit-based web application** for performing **Tacheometric Surveying calculations**.
-The app calculates **distance, vertical height difference, and Reduced Level (RL)** using staff readings and vertical angles.
+This project provides an interactive Python/Streamlit application to solve tangential tacheometry problems. It specifically calculates the Reduced Level (RL) of a station and the horizontal distance between points based on theodolite observations.
 
----
+## 📌 Problem Overview
 
-## 🚀 Features
+Based on **Problem Statement**, the app determines the elevation of **Station B** using observations from **Station A** to a **Benchmark (BM)** and **Station B**.
 
-* Calculate **distance between stations**
-* Compute **vertical height difference (V1, V2)**
-* Determine **RL of Instrument Axis**
-* Compute **RL of Station B**
-* Automatically calculate **total distance between BM and B**
-* Visualize the survey layout using **Matplotlib**
+## 🚀 Key Features
 
----
+* 
+**Manual Inputs**: Adjust RL of BM, vertical angles (elevation/depression), and staff readings via a sidebar.
 
-## 🧮 Calculations Performed
 
-The application performs the following surveying calculations:
+* 
+**Dynamic Calculations**: View step-by-step solutions with updated values in real-time.
 
-### 1. Staff Intercept
 
-[
-S = Upper\ Reading - Lower\ Reading
-]
+* **Geometric Visualization**: Includes a plot of Fig. E.11.2 showing the instrument axis and lines of sight.
 
-### 2. Horizontal Distance
 
-[
-D = \frac{S}{tan(\theta_u) - tan(\theta_l)}
-]
 
-### 3. Vertical Height Difference
+## 🛠 Formulas Used
 
-[
-V = D \times tan(\theta)
-]
+* 
+**Staff Intercept ($S$):** $S = \text{Upper Reading} - \text{Lower Reading}$.
 
-### 4. Reduced Level
 
-[
-    RL_{instrument} = RL_{BM} + h + V
-]
+* 
+**Distance ($D$) - Same Side Angles:** $D = \frac{S}{\tan \alpha_1 - \tan \alpha_2}$.
 
-[
-RL_B = RL_{instrument} - V_2 - h_2
-]
 
----
+* 
+**Distance ($D$) - Opposite Side Angles:** $D = \frac{S}{\tan \alpha + \tan \beta}$.
 
-## 🖥️ App Interface
 
-The application allows users to input:
+* 
+**Vertical Component ($V$):** $V = D \times \tan \theta$ (using the angle to the lower cross-hair).
 
-### Benchmark (BM) Observation
 
-* Lower staff reading
-* Upper staff reading
-* Upper angle (degree & minute)
-* Lower angle (degree & minute)
-* RL of Benchmark
 
-### Station B Observation
+## 💻 Quick Start
 
-* Lower staff reading
-* Upper staff reading
-* Upper angle (degree & minute)
-* Lower angle (degree & minute)
-
----
-
-## 📊 Visualization
-
-After calculation, the app generates a **survey diagram** showing:
-
-* Benchmark (BM)
-* Instrument station (A)
-* Station B
-* Horizontal distances (D1, D2)
-* Vertical heights (V1, V2)
-* Reduced Levels
-
----
-
-## 🛠️ Technologies Used
-
-* Python
-* Streamlit
-* Matplotlib
-* Math library
-
----
-
-## 📦 Installation
-
-1. Clone the repository
-
+1. **Install Dependencies**:
 ```bash
-git clone https://github.com/yourusername/tacheometric-calculator.git
-cd tacheometric-calculator
+pip install streamlit matplotlib numpy
+
 ```
 
-2. Install dependencies
 
-```bash
-pip install streamlit matplotlib
-```
-
----
-
-## ▶️ Run the Application
-
+2. **Run the App**:
 ```bash
 streamlit run app.py
-```
-
-The app will open automatically in your browser:
 
 ```
-http://localhost:8501
-```
+
+
+
+## 📊 Sample Results (Problem Statement)
+
+* 
+**RL of Station B**: 515.398 m.
+
+
+* 
+**Distance BM to B**: 49.706 m.
+
+
 
 ---
 
-## 📂 Project Structure
-
-```
-tacheometric-calculator
-│
-├── app.py
-├── README.md
-└── requirements.txt
-```
-
----
-
-## 📌 Example Output
-
-The app calculates:
-
-* **D1 – Distance from BM to instrument**
-* **V1 – Vertical difference**
-* **RL of Instrument Axis**
-* **D2 – Distance from instrument to station B**
-* **V2 – Vertical difference**
-* **RL of Station B**
-* **Total distance BM → B**
-
----
-
-## 📜 License
-
-This project is for **educational and surveying purposes**.
-
----
-
-## 👨‍💻 Author
-
-Developed using **Python & Streamlit for surveying calculations**.
+##  Sample Results 
+For a full breakdown of the theory and step-by-step manual calculations, [refer to the Detailed Project Documentation](https://docs.google.com/document/d/1Owj_vA9gmCLcSt9u-i3gFPc42AjVIjDM/edit?usp=sharing&ouid=103860477907296356829&rtpof=true&sd=true).
